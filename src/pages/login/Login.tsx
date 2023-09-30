@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { updateEmail, updatePassword } from '../../redux/actions';
 import { UserWallet } from '../../types';
 import { Form } from './LoginStyle';
+import InputsForm from '../../components/InputsForm';
 
 function Login() {
   const [password, setPassword] = useState('');
@@ -27,25 +28,12 @@ function Login() {
 
   return (
     <Form>
-      <input
-        data-testid="email-input"
-        type="email"
-        placeholder="E-mail"
-        onChange={ handleEmailChange }
+      <InputsForm
+        handleEmailChange={ handleEmailChange }
+        handlePasswordChange={ handlePasswordChange }
+        handleNavigate={ handleNavigate }
+        isValidForm={ isValidForm }
       />
-      <input
-        data-testid="password-input"
-        type="password"
-        placeholder="Senha"
-        onChange={ (handlePasswordChange) }
-      />
-      <button
-        type="submit"
-        disabled={ !isValidForm }
-        onClick={ handleNavigate }
-      >
-        Entrar
-      </button>
     </Form>
   );
 }
