@@ -1,30 +1,16 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import { updateEmail, updatePassword } from '../../redux/actions';
+import { useSelector } from 'react-redux';
 import { UserWallet } from '../../types';
 import { Form } from './LoginStyle';
 import InputsForm from '../../components/InputsForm';
+import LogiForm from '../../utils/formHandlers';
 
 function Login() {
-  const [password, setPassword] = useState('');
-  const dispatch = useDispatch();
   const regEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const emailValue = useSelector((state: UserWallet) => state.user.email);
-  const isValidForm = regEx.test(emailValue) && password.length >= 6;
-  const navigate = useNavigate();
+  const isValidForm = regEx.test(emailValue);
 
-  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(updateEmail(event.target.value));
-  };
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
-  const handleNavigate = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    dispatch(updatePassword(password));
-    navigate('/carteira');
-  };
+  const { password, handleEmailChange,
+    handlePasswordChange, handleNavigate } = LogiForm();
 
   return (
     <Form>
@@ -32,7 +18,7 @@ function Login() {
         handleEmailChange={ handleEmailChange }
         handlePasswordChange={ handlePasswordChange }
         handleNavigate={ handleNavigate }
-        isValidForm={ isValidForm }
+        isValidForm={ isValidForm && password.length >= 6 }
       />
     </Form>
   );
