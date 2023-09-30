@@ -1,16 +1,31 @@
 import { useSelector } from 'react-redux';
 import { UserWallet } from '../types';
+import LogoTrybe from './LogoTrybe';
+import Moedas from '../assets/Moedas.svg';
+import Vector from '../assets/Vector.svg';
+import { HeaderContainer, ExpensesContainer, TotalExpenses,
+  Profiel } from './HeadreStyles';
 
 function Header() {
   const emailState = useSelector((state: UserWallet) => state.user.email);
 
   return (
-    <header>
-      <p data-testid="email-field">{emailState}</p>
-      <p data-testid="total-field">0</p>
-      <p data-testid="header-currency-field">BRL</p>
-
-    </header>
+    <HeaderContainer>
+      <ExpensesContainer data-testid="total-field">
+        <LogoTrybe />
+        <TotalExpenses>
+          <img src={ Moedas } alt="icon coins" />
+          Total de despesas:
+          <span data-testid="header-currency-field">
+            0 BRL
+          </span>
+        </TotalExpenses>
+        <Profiel data-testid="email-field">
+          <img src={ Vector } alt="profiel" />
+          {emailState}
+        </Profiel>
+      </ExpensesContainer>
+    </HeaderContainer>
   );
 }
 
