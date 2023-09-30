@@ -39,6 +39,11 @@ line-height: normal;
 cursor: pointer;
 }
 
+.buttonDisabled:hover {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
 input {
 width: 20.625rem;
 height: 2.5rem;

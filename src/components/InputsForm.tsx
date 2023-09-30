@@ -27,6 +27,7 @@ function InputsForm({ handleEmailChange, handlePasswordChange,
         type="submit"
         disabled={ !isValidForm }
         onClick={ handleNavigate }
+        className={ isValidForm ? '' : 'buttonDisabled' }
       >
         Entrar
       </button>
