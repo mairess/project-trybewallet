@@ -1,3 +1,6 @@
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
+
 export type UserWallet = {
   user: {
     email: string,
@@ -10,3 +13,5 @@ export type UserWallet = {
     idToEdit: number;
   }
 };
+
+export type Dispatch = ThunkDispatch<UserWallet, null, AnyAction>;

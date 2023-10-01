@@ -1,8 +1,16 @@
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
 
-import { ADD_EXPENSE, REMOVE_EXPENSE } from '../actions';
+import {
+  ADD_EXPENSE, REMOVE_EXPENSE, FETCH_CURRENCIES_SUCCESS,
+  FETCH_CURRENCIES_FAILURE,
+} from '../actions';
 
-type ActionType = { type: string, expense: object };
+type ActionType = {
+  type: string,
+  currencies: string[],
+  error: string,
+  expense: object[]
+};
 
 const INITIAL_STATE = {
   currencies: [],
@@ -13,6 +21,17 @@ const INITIAL_STATE = {
 
 function wallet(state = INITIAL_STATE, action: ActionType) {
   switch (action.type) {
+    case FETCH_CURRENCIES_SUCCESS:
+      return {
+        ...state,
+        currencies: action.currencies,
+        error: '',
+      };
+    case FETCH_CURRENCIES_FAILURE:
+      return {
+        ...state,
+        error: action.error,
+      };
     case ADD_EXPENSE:
       return {
         ...state,

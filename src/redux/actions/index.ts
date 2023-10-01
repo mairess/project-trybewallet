@@ -1,4 +1,6 @@
 // Coloque aqui suas actions
+import { Dispatch } from '../../types';
+import getCurrencies from '../../utils/fettchAPI';
 
 export const UPDATE_EMAIL = 'UPDATE_EMAIL';
 export const UPDATE_PASSWORD = 'UPDATE_PASSWORD';
@@ -24,3 +26,31 @@ export const removeExpense = (id: number) => ({
   type: REMOVE_EXPENSE,
   id,
 });
+
+export const FETCH_CURRENCIES_REQUEST = 'FETCH_CURRENCIES_REQUEST';
+export const FETCH_CURRENCIES_SUCCESS = 'FETCH_CURRENCIES_SECCES';
+export const FETCH_CURRENCIES_FAILURE = 'FETCH_CURRENCIES_FAILURE';
+
+export const fetchCurrenciesrequest = () => ({
+  type: FETCH_CURRENCIES_REQUEST,
+});
+
+export const fetchCurrenciesSuccess = (currencies: string[]) => ({
+  type: FETCH_CURRENCIES_SUCCESS,
+  currencies,
+});
+
+export const fetchCurrenciesFailure = (error: string) => ({
+  type: FETCH_CURRENCIES_FAILURE,
+  error,
+});
+
+export const fetchCurrencies = () => async (dispatch: Dispatch) => {
+  try {
+    dispatch(fetchCurrenciesrequest());
+    const currencies = await getCurrencies();
+    dispatch(fetchCurrenciesSuccess(currencies));
+  } catch (error: any) {
+    dispatch(fetchCurrenciesFailure(error.message));
+  }
+};
