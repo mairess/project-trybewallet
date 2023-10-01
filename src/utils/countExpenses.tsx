@@ -10,7 +10,7 @@ function TotalExpensesComponent() {
   }, 0);
 
   return (
-    <span>{`${total.toFixed(2)} BRL`}</span>
+    <span>{total.toFixed(2)}</span>
   );
 }
 

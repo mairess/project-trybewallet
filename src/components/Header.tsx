@@ -12,13 +12,16 @@ function Header() {
 
   return (
     <HeaderContainer>
-      <ExpensesContainer data-testid="total-field">
+      <ExpensesContainer>
         <LogoTrybe />
         <TotalExpenses>
           <img src={ Moedas } alt="icon coins" />
           Total de despesas:
-          <span data-testid="header-currency-field">
+          <span data-testid="total-field">
             <TotalExpensesComponent />
+          </span>
+          <span data-testid="header-currency-field">
+            BRL
           </span>
         </TotalExpenses>
         <Profiel data-testid="email-field">
