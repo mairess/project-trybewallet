@@ -38,7 +38,6 @@ function WalletForm() {
 
   useEffect(() => {
     dispatch(fetchCurrencies());
-    dispatch(fetchExchangeRates());
   }, [dispatch]);
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -59,7 +58,7 @@ function WalletForm() {
         onChange={ handleChange }
         values={ formValues }
       />
-      <button>
+      <button type="submit">
         Adicionar despesa
       </button>
     </FormExpenses>
