@@ -5,6 +5,7 @@ import Moedas from '../assets/Moedas.svg';
 import Vector from '../assets/Vector.svg';
 import { HeaderContainer, ExpensesContainer, TotalExpenses,
   Profiel } from './HeadreStyles';
+import TotalExpensesComponent from '../utils/countExpenses';
 
 function Header() {
   const emailState = useSelector((state: UserWallet) => state.user.email);
@@ -17,7 +18,7 @@ function Header() {
           <img src={ Moedas } alt="icon coins" />
           Total de despesas:
           <span data-testid="header-currency-field">
-            0 BRL
+            <TotalExpensesComponent />
           </span>
         </TotalExpenses>
         <Profiel data-testid="email-field">
