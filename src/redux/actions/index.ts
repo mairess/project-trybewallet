@@ -17,7 +17,15 @@ export const updatePassword = (password: string) => ({
   password,
 });
 
-export const addExpense = (expense: object) => ({
+type Expenses = {
+  value: string,
+  description: string;
+  currency: string;
+  method: string;
+  tag: string;
+};
+
+export const addExpense = (expense: Expenses) => ({
   type: ADD_EXPENSE,
   expense,
 });
