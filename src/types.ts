@@ -1,6 +1,22 @@
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
+type Expense = {
+  id: number,
+  value: string,
+  description: string,
+  currency: string,
+  method: string,
+  tag: string,
+  exchangeRates: {
+    [key: string]: {
+      code: string,
+      name: string,
+      ask: string,
+    }
+  },
+};
+
 export type UserWallet = {
   user: {
     email: string,
@@ -8,7 +24,7 @@ export type UserWallet = {
   },
   wallet: {
     currencies: string[];
-    expenses: object[];
+    expenses: Expense[];
     editor: boolean;
     idToEdit: number;
   }

@@ -5,11 +5,30 @@ import {
   FETCH_CURRENCIES_FAILURE,
 } from '../actions';
 
+type ExchangeRates = {
+  [key: string]: {
+    code: string,
+    name: string,
+    ask: string,
+  }
+};
+
+type Expense = {
+  id?: number,
+  value: string,
+  description: string;
+  currency: string;
+  method: string;
+  tag: string;
+  exchangeRates?: ExchangeRates,
+};
+
 type ActionType = {
   type: string,
   currencies: string[],
   error: string,
-  expense: object[]
+  expense: Expense,
+  exchangeRates?: ExchangeRates,
 };
 
 const INITIAL_STATE = {
@@ -35,7 +54,14 @@ function wallet(state = INITIAL_STATE, action: ActionType) {
     case ADD_EXPENSE:
       return {
         ...state,
-        expenses: [...state.expenses, action.expense],
+        expenses: [
+          ...state.expenses,
+          {
+            id: state.expenses.length > 0
+              ? ((state.expenses[state.expenses.length - 1] as Expense)?.id ?? 0) + 1 : 0,
+            ...action.expense,
+          },
+        ],
       };
     case REMOVE_EXPENSE:
       return {
