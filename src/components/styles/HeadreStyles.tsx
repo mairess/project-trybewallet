@@ -5,6 +5,8 @@ width: 64.813em;
 height: 30.125em;
 flex-shrink: 0;
 
+margin-top: -465px; //review this 'gambiarra'
+
 border-radius: 0.625rem;
 background: #FFF;
 box-shadow: -0.25rem 0.563rem 0.813rem 0 rgba(5, 18, 54, 0.40);
