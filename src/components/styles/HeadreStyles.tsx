@@ -4,7 +4,7 @@ export const HeaderContainer = styled.header`
 width: 64.813em;
 height: 30.125em;
 flex-shrink: 0;
-
+z-index: 1;
 margin-top: -465px; //review this 'gambiarra'
 
 border-radius: 0.625rem;

@@ -5,7 +5,6 @@ export const Container = styled.div`
   justify-content: center;
   align-items: end;
   position: absolute;
-  z-index: -1;
 
   width: 1155px;
   height: 464px;
@@ -28,10 +27,6 @@ export const TableData = styled.table`
   width: 1040px;
   height: 129px;
   flex-shrink: 0;
-
-  border: 1px solid red;
-  margin-bottom: 100px;
-
 th {
   color: #FFF;
   border-right: 1px solid white;
@@ -40,5 +35,15 @@ th {
     border-right: none;
   }
   border-bottom: 1px solid white;
+}
+
+td {
+  color: #2FC18C;
+  text-align: center;
+  font-family: Epilogue;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 13px; /* 108.333% */
 }
 `;
