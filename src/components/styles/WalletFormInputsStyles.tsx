@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+border: 1px solid blue;
+width: 380px;
+height: 87px;
+
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+
 label {
   color: #003BE5;
   font-family: Epilogue;
@@ -14,12 +22,12 @@ label {
 input {
   border-radius: 5px;
   border: 1px solid #003BE5;
+
+  margin-left: 5px;
 }
 `;
 
 export const Description = styled.div`
-  border: 1px solid blue;
-
   width: 350px;
   height: 30px;
   flex-shrink: 0;
@@ -32,8 +40,6 @@ input {
 `;
 
 export const Value = styled.div`
-  border: 1px solid blue;
-
   width: 201px;
   height: 30px;
   flex-shrink: 0;
@@ -42,6 +48,5 @@ input {
   width: 158px;
   height: 30px;
   flex-shrink: 0;
-
 }
 `;

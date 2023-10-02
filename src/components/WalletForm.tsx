@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
-import { FormExpenses, Container } from './WalletFormStyles';
+import { FormExpenses, Container } from './styles/WalletFormStyles';
 import { addExpense, fetchCurrencies, fetchExchangeRates } from '../redux/actions';
 import { Dispatch, UserWallet } from '../types';
 import WalletFormInputs from './WalletFormInputs';

@@ -22,7 +22,7 @@ function WalletFormInputs({ onChange, values }: WalletFormInputsProps) {
       </Description>
       <Value>
         <label htmlFor="value">
-          Valor:
+          Valor
           <input
             id="value"
             data-testid="value-input"

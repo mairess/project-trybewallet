@@ -4,7 +4,7 @@ import LogoTrybe from './LogoTrybe';
 import Moedas from '../assets/Moedas.svg';
 import Vector from '../assets/Vector.svg';
 import { HeaderContainer, ExpensesContainer, TotalExpenses,
-  Profiel } from './HeadreStyles';
+  Profiel } from './styles/HeadreStyles';
 import TotalExpensesComponent from '../utils/countExpenses';
 import WalletForm from './WalletForm';
 
