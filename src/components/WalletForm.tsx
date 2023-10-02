@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
-import { FormExpenses } from './WalletFormStyles';
+import { FormExpenses, Container } from './WalletFormStyles';
 import { addExpense, fetchCurrencies, fetchExchangeRates } from '../redux/actions';
 import { Dispatch, UserWallet } from '../types';
 import WalletFormInputs from './WalletFormInputs';
@@ -49,19 +49,21 @@ function WalletForm() {
   };
 
   return (
-    <FormExpenses onSubmit={ handleSubmit }>
-      <WalletFormInputs
-        onChange={ handleChange }
-        values={ formValues }
-      />
-      <WalletFormSelects
-        onChange={ handleChange }
-        values={ formValues }
-      />
-      <button type="submit">
-        Adicionar despesa
-      </button>
-    </FormExpenses>
+    <Container>
+      <FormExpenses onSubmit={ handleSubmit }>
+        <WalletFormInputs
+          onChange={ handleChange }
+          values={ formValues }
+        />
+        <WalletFormSelects
+          onChange={ handleChange }
+          values={ formValues }
+        />
+        <button type="submit">
+          Adicionar despesa
+        </button>
+      </FormExpenses>
+    </Container>
   );
 }
 

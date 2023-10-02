@@ -17,9 +17,6 @@ function WalletFormSelects({ onChange, values }: WalletFormSelectsProps) {
         onChange={ onChange }
         value={ values.currency }
       >
-        {/* {currencies.map((currency: string) => (
-          <option key={ currency } value={ currency }>{currency}</option>
-        ))} */}
         {Array.isArray(currencies) ? (
           currencies.map((currency) => (
             <option key={ currency } value={ currency }>{currency}</option>

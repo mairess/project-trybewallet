@@ -6,6 +6,7 @@ import Vector from '../assets/Vector.svg';
 import { HeaderContainer, ExpensesContainer, TotalExpenses,
   Profiel } from './HeadreStyles';
 import TotalExpensesComponent from '../utils/countExpenses';
+import WalletForm from './WalletForm';
 
 function Header() {
   const emailState = useSelector((state: UserWallet) => state.user.email);
@@ -29,6 +30,7 @@ function Header() {
           {emailState}
         </Profiel>
       </ExpensesContainer>
+      <WalletForm />
     </HeaderContainer>
   );
 }
