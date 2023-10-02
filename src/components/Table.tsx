@@ -1,9 +1,16 @@
-import { useSelector } from 'react-redux';
-import { Container, TableData } from './styles/TableStyles';
+import { useSelector, useDispatch } from 'react-redux';
+import { Container, TableData, Button } from './styles/TableStyles';
 import { UserWallet } from '../types';
+import { removeExpense } from '../redux/actions';
+import RemoveBtnIcon from '../assets/RemoveBtnIcon.svg';
 
 function Table() {
+  const dispatch = useDispatch();
   const expenses = useSelector((state: UserWallet) => state.wallet.expenses);
+
+  const handleRemove = (id: number) => {
+    dispatch(removeExpense(id));
+  };
   return (
     <Container>
       <TableData>
@@ -37,7 +44,14 @@ function Table() {
                   * parseFloat(espense.exchangeRates[espense.currency].ask)).toFixed(2)}
               </td>
               <td>Real</td>
-              <td>Editar/Excluir</td>
+              <td>
+                <Button
+                  onClick={ () => handleRemove(espense.id) }
+                  data-testid="delete-btn"
+                >
+                  <img src={ RemoveBtnIcon } alt="Button Remove" />
+                </Button>
+              </td>
             </tr>
           ))}
         </tbody>

@@ -29,6 +29,7 @@ type ActionType = {
   error: string,
   expense: Expense,
   exchangeRates?: ExchangeRates,
+  id?: number,
 };
 
 const INITIAL_STATE = {
@@ -66,7 +67,7 @@ function wallet(state = INITIAL_STATE, action: ActionType) {
     case REMOVE_EXPENSE:
       return {
         ...state,
-        expenses: state.expenses.filter((expense) => expense !== action.expense),
+        expenses: state.expenses.filter((expense: Expense) => expense.id !== action.id),
       };
     default:
       return state;

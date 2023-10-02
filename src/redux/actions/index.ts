@@ -34,11 +34,6 @@ type ExchangeRates = {
   }
 };
 
-// export const addExpense = (expense: Expenses) => ({
-//   type: ADD_EXPENSE,
-//   expense,
-// });
-
 export const addExpense = (expense: Expenses) => async (dispatch: Dispatch) => {
   try {
     const exchangeRates = await getExchangeRates();

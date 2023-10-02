@@ -47,3 +47,9 @@ td {
   line-height: 13px; /* 108.333% */
 }
 `;
+
+export const Button = styled.button`
+background: none;
+border: none;
+cursor: pointer;
+`;
