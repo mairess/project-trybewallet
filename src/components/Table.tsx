@@ -1,6 +1,9 @@
+import { useSelector } from 'react-redux';
 import { Container, TableData } from './styles/TableStyles';
+import { UserWallet } from '../types';
 
 function Table() {
+  const expenses = useSelector((state: UserWallet) => state.wallet.expenses);
   return (
     <Container>
       <TableData>
@@ -15,17 +18,27 @@ function Table() {
           <th>Moeda de conversão</th>
           <th>Editar/Excluir</th>
         </tr>
-        <tr>
-          <td>Descrição</td>
-          <td>Tag</td>
-          <td>Método de pagamento</td>
-          <td>Valor</td>
-          <td>Moeda</td>
-          <td>Câmbio utilizado</td>
-          <td>Valor convertido</td>
-          <td>Moeda de conversão</td>
-          <td>Editar/Excluir</td>
-        </tr>
+        <tbody>
+          {expenses.map((espense) => (
+            <tr key={ espense.id }>
+              <td>{espense.description}</td>
+              <td>{espense.tag}</td>
+              <td>{espense.method}</td>
+              <td>{parseFloat(espense.value).toFixed(2)}</td>
+              <td>{`${espense.exchangeRates[espense.currency].name}`}</td>
+              <td>
+                {parseFloat(espense.exchangeRates[espense.currency].ask)
+                  .toFixed(2)}
+              </td>
+              <td>
+                {(parseFloat(espense.value)
+                  * parseFloat(espense.exchangeRates[espense.currency].ask)).toFixed(2)}
+              </td>
+              <td>Real</td>
+              <td>Editar/Excluir</td>
+            </tr>
+          ))}
+        </tbody>
       </TableData>
     </Container>
   );
