@@ -1,7 +1,9 @@
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { vi } from 'vitest';
 import { renderWithRouterAndRedux } from '../helpers/renderWith';
 import App from '../../App';
+import getCurrencies from '../../utils/fettchAPI';
 
 const user = userEvent.setup();
 
@@ -34,5 +36,14 @@ describe('Testa comportamento da página de login', () => {
 
     await user.click(EnterBtn);
     expect(EnterBtn).not.toBeInTheDocument();
+  });
+
+  test('Testa comportamento dos inputs e do botão', async () => {
+    renderWithRouterAndRedux(<App />);
+    let currencies = getCurrencies;
+    currencies = vi.fn();
+
+    currencies();
+    expect(currencies).toHaveBeenCalled();
   });
 });

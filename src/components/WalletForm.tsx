@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { FormExpenses, Container, Button } from './styles/WalletFormStyles';
-import { addExpense, fetchCurrencies, fetchExchangeRates } from '../redux/actions';
+import { addExpense, fetchCurrencies, fetchExchangeRates,
+  fetchExchangeRatesRequest } from '../redux/actions';
 import { Dispatch, UserWallet } from '../types';
 import WalletFormInputs from './WalletFormInputs';
 import WalletFormSelects from './WalletFormSelects';
@@ -45,6 +46,7 @@ function WalletForm() {
     const exchangeRates = await fetchExchangeRates();
     const expensesWithRates = { ...formValues, exchangeRates };
     dispatch(addExpense(expensesWithRates));
+    dispatch(fetchExchangeRatesRequest());
     setFormsValues(initialValues);
   };
 
