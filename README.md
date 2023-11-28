@@ -1,10 +1,12 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# <p align="center">Projeto Trybewallet</p>
+
+## Contexto
+
+Este projeto consiste em uma aplicação que calcula despesas em diversas moedas e as converte para uma moeda única, escolhida pelo usuário. Para obter informações sobre os nomes, taxas de câmbio e outros dados das moedas, a aplicação se conecta a API de Cotações de Moedas. Todo esse processo é gerenciado pelo `Redux`, que facilita o compartilhamento do estado da aplicação entre diferentes componentes. Algums funcionalidades são, adicionar e remover um gasto.
+
+## Competências desenvolvidas
+
+- Capacidade de criar `store` Redux.
+- Capacidade de criar `actions` no Redux.
+- Capacidade de criar `actions` no Redux.
+- Capacidade de criar `dispatchers` no Redux.
